@@ -13,4 +13,3 @@ namespace ApplicationCore.Entities
         public int UserId { get; set; }
     }
 }
-}

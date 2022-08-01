@@ -8,8 +8,12 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Data
 {
-    public class MovieDbContext
+    public class MovieDbContext : DbContext
     {
+        public MovieDbContext(DbContextOptions<MovieDbContext> options) : base(options)
+        {
+            
+        }
         public DbSet<Cast> Cast { get; set; }
         public DbSet<Movie> Movie { get; set; }
         public DbSet<Crew> Crew { get; set; }
