@@ -16,7 +16,7 @@ namespace ApplicationCore.Entities
         [Column(TypeName = "Varchar(256)")]
         public string Title { get; set; }
 
-        [Column(TypeName = "Varchar(MAX)")]
+        [Column(TypeName = "Varchar(200)")]
         public string Overview { get; set; }
 
         [Column(TypeName = "Varchar(512)")]
@@ -51,10 +51,10 @@ namespace ApplicationCore.Entities
 
         public DateTime UpdatedDate { get; set; }
 
-        [Column(TypeName = "Varchar(MAX)")]
+        [Column(TypeName = "Varchar(200)")]
         public string UpdatedBy { get; set; }
 
-        [Column(TypeName = "Varchar(MAX)")]
+        [Column(TypeName = "Varchar(200)")]
         public string CreatedBy { get; set; }
     }
 }

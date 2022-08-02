@@ -12,9 +12,6 @@ namespace ApplicationCore.Entities
         public int Id { get; set; }
 
         [Required]
-        public User UserId { get; set; }
-
-        [Required]
         public int PurchaseNumber { get; set; }
 
         [Required]

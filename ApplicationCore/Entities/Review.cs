@@ -10,9 +10,8 @@ namespace ApplicationCore.Entities
     public class Review
     {
         public Movie MovieId { get; set; }
-        public User UserId { get; set; }
         public decimal Rating { get; set; }
-        [Column(TypeName = "Varchar(MAX)")]
+        [Column(TypeName = "Varchar(2000)")]
         public string ReviewText { get; set; }
     }
 }
