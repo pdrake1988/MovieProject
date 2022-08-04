@@ -9,10 +9,10 @@ namespace ApplicationCore.Entities
 {
     public class Crew
     {
-        public int id { get; set; }
+        public int Id { get; set; }
 
         [Column(TypeName = "Varchar(128)")]
-        public string name { get; set; }
+        public string Name { get; set; }
 
         [Column(TypeName = "Varchar(6)")]
         public string Gender { get; set; }

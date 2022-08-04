@@ -9,6 +9,7 @@ namespace ApplicationCore.Entities
 {
     public class Review
     {
+        public int Id { get; set; }
         public Movie MovieId { get; set; }
         public decimal Rating { get; set; }
         [Column(TypeName = "Varchar(2000)")]

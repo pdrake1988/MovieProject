@@ -10,9 +10,10 @@ namespace ApplicationCore.Entities
 {
     public class MovieCrew
     {
-        public Movie MovieId { get; set; }
+        public int Id { get; set; }
+        public int MovieId { get; set; }
 
-        public Crew CrewId { get; set; }
+        public int CrewId { get; set; }
 
         [Required]
         [Column(TypeName = "Varchar(128)")]

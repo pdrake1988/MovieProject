@@ -10,6 +10,7 @@ namespace ApplicationCore.Entities
 {
     public class MovieCast
     {
+        public int Id { get; set; }
         public Movie MovieId { get; set; }
 
         public Cast CastId { get; set; }

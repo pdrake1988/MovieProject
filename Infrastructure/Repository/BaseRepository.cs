@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApplicationCore.Contracts.Repository
+namespace Infrastructure.Repository
 {
-    public interface IUserRepository
+    public class BaseRepository<T>
     {
     }
 }
