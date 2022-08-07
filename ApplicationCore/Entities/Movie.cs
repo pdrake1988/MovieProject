@@ -29,19 +29,19 @@ namespace ApplicationCore.Entities
         public decimal Revenue { get; set; }
 
         [Column(TypeName = "Varchar(2084)")]
-        public string ImdbUrl { get; set; }
+        public string? ImdbUrl { get; set; }
 
         [Column(TypeName = "Varchar(2084)")]
-        public string TmdbUrl { get; set; }
+        public string? TmdbUrl { get; set; }
 
         [Column(TypeName = "Varchar(2084)")]
         public string PosterUrl { get; set; }
 
         [Column(TypeName = "Varchar(2084)")]
-        public string BackdropUrl { get; set; }
+        public string? BackdropUrl { get; set; }
 
         [Column(TypeName = "Varchar(64)")]
-        public string OriginalLanguage { get; set; }
+        public string? OriginalLanguage { get; set; }
 
         public DateTime ReleaseDate { get; set; }
 
@@ -55,10 +55,10 @@ namespace ApplicationCore.Entities
         public DateTime UpdatedDate { get; set; }
 
         [Column(TypeName = "Varchar(200)")]
-        public string UpdatedBy { get; set; }
+        public string? UpdatedBy { get; set; }
 
         [Column(TypeName = "Varchar(200)")]
-        public string CreatedBy { get; set; }
+        public string? CreatedBy { get; set; }
 
         public List<Crew> MovieCrew { get; set; }
 

@@ -1,6 +1,4 @@
-﻿@using ApplicationCore.Model
-@model MovieModel
-<div class="modal" tabindex="-1" id="myModal">
+﻿<div class="modal" tabindex="-1" id="myModal">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -27,11 +25,9 @@
             <input class="form-control" id="release" name="ReleaseDate" />
             <label class="form-label" for="price">Price</label>
             <input class="form-control" id="price" name="Price" />
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" role="button" class="btn btn-primary" value="save">Submit</button>
         </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" role="button" class="btn btn-primary">Submit</button>
       </div>
     </div>
   </div>

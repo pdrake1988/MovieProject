@@ -28,7 +28,11 @@ namespace MovieProject.Controllers
         [HttpPost]
         public async Task<ActionResult> CreateMovie(MovieModel movie)
         {
-            await movieService.InsertMovieAsync(movie);
+            if (ModelState.IsValid)
+            {
+                await movieService.InsertMovieAsync(movie);
+                return RedirectToAction("Index");
+            }
             return RedirectToAction("Index");
         }
     }
