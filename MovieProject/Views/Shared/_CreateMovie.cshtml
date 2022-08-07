@@ -1,0 +1,38 @@
+﻿@using ApplicationCore.Model
+@model MovieModel
+<div class="modal" tabindex="-1" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Create New Movie</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form asp-controller="Movies" asp-action="CreateMovie" method="post">
+            <label class="form-label" for="title">Title</label>
+            <input id="title" type="text" name="Title" class="form-control" />
+            <label class="form-label" for="overview">Overview</label>
+            <input class="form-control" id="overview" name="Overview" />
+            <label class="form-label" for="genres">Genres</label>
+            <input class="form-control" id="genres" name="Genres" />
+            <label class="form-label" for="tagline">Tagline</label>
+            <input class="form-control" id="tagline" name="Tagline" />
+            <label class="form-label" for="budget">Budget</label>
+            <input class="form-control" id="budget" name="Budget" />
+            <label class="form-label" for="revenue">Revenue</label>
+            <input class="form-control" id="revenue" name="Revenue" />
+            <label class="form-label" for="poster">Poster</label>
+            <input class="form-control" id="poster" name="PosterUrl" />
+            <label class="form-label" for="release">Release Date</label>
+            <input class="form-control" id="release" name="ReleaseDate" />
+            <label class="form-label" for="price">Price</label>
+            <input class="form-control" id="price" name="Price" />
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" role="button" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>

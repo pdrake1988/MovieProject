@@ -1,12 +1,35 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ApplicationCore.Contracts.Services;
+using ApplicationCore.Model;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MovieProject.Controllers
 {
     public class MoviesController : Controller
     {
-        public IActionResult Index()
+        IMovieServiceAsync movieService;
+        IGenreServiceAsync genreService;
+        public MoviesController(IMovieServiceAsync movieService, IGenreServiceAsync genreService)
         {
-            return View();
+            this.movieService = movieService;
+            this.genreService = genreService;
+        }
+        [HttpGet]
+        public async Task<ActionResult> Index()
+        {
+            ViewBag.Genres = await genreService.GetAllGenresAsync();
+            return View(await movieService.GetAllMoviesAsync());
+        }
+        [HttpGet]
+        public async Task<ActionResult> MovieDetails(int id)
+        {
+            var movie = await movieService.GetMovieByIdAsync(id);
+            return View(movie);
+        }
+        [HttpPost]
+        public async Task<ActionResult> CreateMovie(MovieModel movie)
+        {
+            await movieService.InsertMovieAsync(movie);
+            return RedirectToAction("Index");
         }
     }
 }

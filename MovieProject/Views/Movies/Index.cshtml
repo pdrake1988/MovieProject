@@ -1,0 +1,13 @@
+﻿@{
+    @ViewBag.Genres
+}
+<div class="row">
+        @foreach (var movie in Model)
+        {
+            <div class="col-3">
+                <a asp-controller="Movies" asp-action="MovieDetails" asp-route="@Model.Id">
+                    <img src="@Model.PosterUrl" alt="@Model.Title"/>
+                </a>
+            </div>
+        }
+</div>

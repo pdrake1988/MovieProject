@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infrastructure.Repository
+namespace ApplicationCore.Contracts.Services
 {
-    public class BaseRepository<T>
+    public interface IAdminServiceAsync
     {
     }
 }

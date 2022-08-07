@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Services
 {
-    public class CastService : ICastService
+    public class UserServiceAsync : IUserServiceAsync
     {
 
     }

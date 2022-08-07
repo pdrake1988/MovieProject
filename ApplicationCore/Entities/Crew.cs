@@ -22,5 +22,6 @@ namespace ApplicationCore.Entities
 
         [Column(TypeName = "Varchar(2084)")]
         public string ProfilePath { get; set; }
+        public List<Movie> Movies { get; set; }
     }
 }

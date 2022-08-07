@@ -15,5 +15,7 @@ namespace ApplicationCore.Entities
         [Required]
         [Column(TypeName = "Varchar(64)")]
         public string Name { get; set; }
+
+        public List<Movie> Movies { get; set; }
     }
 }

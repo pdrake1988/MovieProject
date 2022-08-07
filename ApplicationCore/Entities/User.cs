@@ -17,6 +17,7 @@ namespace ApplicationCore.Entities
         [Column(TypeName = "Varchar(128)")]
         public string LastName { get; set; }
 
+        [Column(TypeName = "datetime2(7)")]
         public DateTime DateOfBirth { get; set; }
 
         [Column(TypeName = "Varchar(256)")]
@@ -31,12 +32,22 @@ namespace ApplicationCore.Entities
         [Column(TypeName = "Varchar(16)")]
         public string PhoneNumber { get; set; }
 
+        [Column(TypeName = "datetime2(7)")]
         public DateTime LockoutEndDate { get; set; }
 
+        [Column(TypeName = "datetime2(7)")]
         public DateTime LastLoginDateTime { get; set; }
 
         public bool IsLocked { get; set; }
 
         public int AccessFailedCount { get; set; }
+
+        public List<Review> Reviews { get; set; }
+
+        public List<Purchase> Purchases { get; set; }
+
+        public List<Role> Roles { get; set; }
+
+        public List<Favorite> Favorites { get; set; }
     }
 }

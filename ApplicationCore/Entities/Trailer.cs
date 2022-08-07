@@ -11,8 +11,10 @@ namespace ApplicationCore.Entities
     public class Trailer
     {
         public int Id { get; set; }
-
-        [Required]
+        public int MovieId { get; set; }
+        public Movie Movie { get; set; }
+        [Column(TypeName = "Varchar(2084)")]
+        public string TrailerUrl { get; set; }
         [Column(TypeName = "Varchar(20)")]
         public string Name { get; set; }
     }

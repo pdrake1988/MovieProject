@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Services
 {
-    public class GenreService : IGenreService
+    public class AcountServiceAsync : IAcountServiceAsync
     {
 
     }

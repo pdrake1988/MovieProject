@@ -1,5 +1,4 @@
-﻿<script src="~/js/modal.js"></script>
-<div class="row">
+﻿<div class="row">
     <div class="col-12 d-flex flex-row bg-secondary">
         <img src="/th.jpg" class="img-fluid m-3" alt="Inception" />
         <div class="bg-secondary">
@@ -9,11 +8,9 @@
             Person's idea into a target's subconscious.</p>
         </div>
         <div class="d-flex flex-row align-content-center">
-            <button class="btn btn-outline-light" id="review-open">Review</button>
             <button class="btn btn-outline-light" id="buy-open">Buy</button>
         </div>
     </div>
-    <partial name="_Review" />
     <partial name="_Buy" />
     <div class="col-6 d-flex flex-column p-5">
         <h3 class="text-center">Movie Facts</h3>
@@ -66,3 +63,4 @@
         </div>
     </div>
 </div>
+@section Scripts { <script src="~/js/modal.js"></script> };

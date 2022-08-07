@@ -22,8 +22,10 @@ namespace ApplicationCore.Entities
         [Column(TypeName = "Varchar(512)")]
         public string Tagline { get; set; }
 
+        [Column(TypeName = "decimal(18, 2)")]
         public decimal Budget { get; set; }
 
+        [Column(TypeName = "decimal(18, 2)")]
         public decimal Revenue { get; set; }
 
         [Column(TypeName = "Varchar(2084)")]
@@ -45,6 +47,7 @@ namespace ApplicationCore.Entities
 
         public int RunTime { get; set; }
 
+        [Column(TypeName = "decimal(5, 2)")]
         public decimal Price { get; set; }
 
         public DateTime CreatedDate { get; set; }
@@ -56,5 +59,19 @@ namespace ApplicationCore.Entities
 
         [Column(TypeName = "Varchar(200)")]
         public string CreatedBy { get; set; }
+
+        public List<Crew> MovieCrew { get; set; }
+
+        public List<Genre> MovieGenres { get; set; }
+
+        public List<Cast> MovieCast { get; set; }
+
+        public List<Review> MovieReviews { get; set; }
+
+        public List<Trailer> MovieTrailers { get; set; }
+
+        public List<Purchase> Purchases { get; set; }
+
+        public List<Favorite> Favourites { get; set; }
     }
 }
