@@ -1,6 +1,7 @@
 ﻿using ApplicationCore.Contracts.Repository;
 using ApplicationCore.Contracts.Services;
 using ApplicationCore.Entities;
+using ApplicationCore.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace Infrastructure.Services
 
         public async Task<int> CreateGenre(Genre genre)
         {
-            Genre newGenre = new Genre()
+            Genre newGenre = new Genre
             {
                 Id = genre.Id,
                 Name = genre.Name
@@ -30,11 +31,6 @@ namespace Infrastructure.Services
         public Task<IEnumerable<Genre>> GetAllGenresAsync()
         {
             return genreRepository.GetAllAsync();
-        }
-
-        public Task<Genre> GetGenreById(int id)
-        {
-            return genreRepository.GetByIdAsync(id);
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using ApplicationCore.Contracts.Services;
+using ApplicationCore.Entities;
 using ApplicationCore.Model;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MovieProject.Controllers
 {
@@ -16,6 +18,7 @@ namespace MovieProject.Controllers
         [HttpGet]
         public async Task<ActionResult> Index()
         {
+            ViewBag.GenreSelect = new SelectList(await genreService.GetAllGenresAsync(), "Id", "Name");
             ViewBag.Genres = await genreService.GetAllGenresAsync();
             return View(await movieService.GetAllMoviesAsync());
         }
@@ -24,6 +27,11 @@ namespace MovieProject.Controllers
         {
             var movie = await movieService.GetMovieByIdAsync(id);
             return View(movie);
+        }
+        public async Task<ActionResult> CreateGenre(Genre genre)
+        {
+            await genreService.CreateGenre(genre);
+            return RedirectToAction("Index");
         }
         [HttpPost]
         public async Task<ActionResult> CreateMovie(MovieModel movie)

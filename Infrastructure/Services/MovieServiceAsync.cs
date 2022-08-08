@@ -13,6 +13,7 @@ namespace Infrastructure.Services
 {
     public class MovieServiceAsync : IMovieServiceAsync
     {
+
         IMovieRepositoryAsync movieRepository;
         IGenreServiceAsync genreService;
         public MovieServiceAsync(IMovieRepositoryAsync movieRepository, IGenreServiceAsync genreService)
@@ -60,8 +61,8 @@ namespace Infrastructure.Services
                         Title = movie.Title,
                         Overview = movie.Overview,
                         ReleaseDate = movie.ReleaseDate,
+                        Genres = movie.MovieGenres,
                         Price = movie.Price,
-                        Genres = genres.ToList(),
                         Tagline = movie.Tagline,
                         Revenue = movie.Revenue,
                         Budget = movie.Budget,
@@ -86,6 +87,7 @@ namespace Infrastructure.Services
                 Revenue = movieModel.Revenue,
                 Budget = movieModel.Budget,
                 PosterUrl = movieModel.PosterUrl,
+                MovieGenres = movieModel.Genres.ToList(),
             };
             return movieRepository.InsertAsync(movie);
         }

@@ -15,6 +15,7 @@ namespace ApplicationCore.Model
         public string Title { get; set; }
         public string Overview { get; set; }
         public List<Genre> Genres { get; set; }
+        public List<Cast> Cast { get; set; }
         public string Tagline { get; set; }
         public decimal Budget { get; set; }
         public decimal Revenue { get; set; }

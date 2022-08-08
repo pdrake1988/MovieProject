@@ -1,10 +1,13 @@
 ﻿<div class="row">
     @foreach (var movie in Model)
     {
-        <div class="col-3">
-            <a asp-controller="Movies" asp-action="MovieDetails" asp-route-id="@movie.Id">
-                <img src="@movie.PosterUrl" alt="@movie.Title"/>
-            </a>
-        </div>
+        @if(@ViewBag.Genre == null || movie.Genres.Contains(@ViewBag.Genre))
+        {
+            <div class="col-3">
+                <a asp-controller="Movies" asp-action="MovieDetails" asp-route-id="@movie.Id">
+                    <img src="@movie.PosterUrl" alt="@movie.Title"/>
+                </a>
+            </div>
+        }
     }
 </div>

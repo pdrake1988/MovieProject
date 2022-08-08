@@ -1,4 +1,5 @@
 ﻿using ApplicationCore.Entities;
+using ApplicationCore.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,5 @@ namespace ApplicationCore.Contracts.Services
     {
         Task<IEnumerable<Genre>> GetAllGenresAsync();
         Task<int> CreateGenre(Genre genre);
-        Task<Genre> GetGenreById(int id);
     }
 }

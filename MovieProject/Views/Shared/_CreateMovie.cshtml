@@ -5,14 +5,16 @@
         <h5 class="modal-title">Create New Movie</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body justify-content-center">
         <form asp-controller="Movies" asp-action="CreateMovie" method="post">
             <label class="form-label" for="title">Title</label>
             <input id="title" type="text" name="Title" class="form-control" />
             <label class="form-label" for="overview">Overview</label>
             <input class="form-control" id="overview" name="Overview" />
             <label class="form-label" for="genres">Genres</label>
-            <input class="form-control" id="genres" name="Genres" />
+            <select asp-items="@ViewBag.GenreSelect" class="form-control" id="genres" name="Genres">
+                <option>Select Genre</option>
+            </select>
             <label class="form-label" for="tagline">Tagline</label>
             <input class="form-control" id="tagline" name="Tagline" />
             <label class="form-label" for="budget">Budget</label>
@@ -25,7 +27,6 @@
             <input class="form-control" id="release" name="ReleaseDate" />
             <label class="form-label" for="price">Price</label>
             <input class="form-control" id="price" name="Price" />
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             <button type="submit" role="button" class="btn btn-primary" value="save">Submit</button>
         </form>
       </div>
