@@ -18,6 +18,17 @@ namespace Infrastructure.Services
             this.castRepository = castRepository;
         }
 
+        public async Task<int> CreateCastMember(CastModel cast)
+        {
+            Cast newCastMember = new Cast()
+            {
+                Name = cast.Name,
+                Gender = cast.Gender,
+                TmdbUrl = cast.TmdbUrl
+            };
+            return await castRepository.InsertAsync(newCastMember);
+        }
+
         public async Task<IEnumerable<CastModel>> GetAllCastMembersAsync()
         {
             var castMembers = await castRepository.GetAllAsync();
@@ -40,19 +51,12 @@ namespace Infrastructure.Services
             return null;
         }
 
-        public async Task<CastModel> GetCastMemberAsync(int id)
+        public async Task<Cast> GetCastMemberByIdAsync(int id)
         {
             Cast cast = await castRepository.GetByIdAsync(id);
             if (cast != null)
             {
-                CastModel castModel = new CastModel()
-                {
-                    Id = cast.Id,
-                    Name = cast.Name,
-                    Gender = cast.Gender,
-                    TmdbUrl = cast.TmdbUrl,
-                };
-                return castModel;
+                return cast;
             }
             return null;
         }

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Infrastructure.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,7 +16,7 @@ namespace Infrastructure.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "Varchar(128)", nullable: false),
-                    Gender = table.Column<string>(type: "Varchar(6)", nullable: false),
+                    Gender = table.Column<string>(type: "Varchar(6)", nullable: true),
                     TmdbUrl = table.Column<string>(type: "Varchar(200)", nullable: false),
                     ProfilePath = table.Column<string>(type: "Varchar(2084)", nullable: false)
                 },

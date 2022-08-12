@@ -10,24 +10,30 @@ namespace MovieProject.Controllers
     {
         IMovieServiceAsync movieService;
         IGenreServiceAsync genreService;
-        public MoviesController(IMovieServiceAsync movieService, IGenreServiceAsync genreService)
+        ICastServiceAsync castService;
+        public MoviesController(IMovieServiceAsync movieService, 
+            IGenreServiceAsync genreService, 
+            ICastServiceAsync castService)
         {
             this.movieService = movieService;
             this.genreService = genreService;
+            this.castService = castService;
         }
         [HttpGet]
-        public async Task<ActionResult> Index()
-        {
-            ViewBag.GenreSelect = new SelectList(await genreService.GetAllGenresAsync(), "Id", "Name");
+        public async Task<ActionResult> Index(int? id)
+        {   if (id != null)
+            {
+                ViewBag.Genre = await genreService.GetGenreById((int)id);
+            }
             ViewBag.Genres = await genreService.GetAllGenresAsync();
             return View(await movieService.GetAllMoviesAsync());
         }
         [HttpGet]
         public async Task<ActionResult> MovieDetails(int id)
         {
-            var movie = await movieService.GetMovieByIdAsync(id);
-            return View(movie);
+            return View(await movieService.GetMovieByIdAsync(id));
         }
+        [HttpPost]
         public async Task<ActionResult> CreateGenre(Genre genre)
         {
             await genreService.CreateGenre(genre);
@@ -36,11 +42,7 @@ namespace MovieProject.Controllers
         [HttpPost]
         public async Task<ActionResult> CreateMovie(MovieModel movie)
         {
-            if (ModelState.IsValid)
-            {
-                await movieService.InsertMovieAsync(movie);
-                return RedirectToAction("Index");
-            }
+            await movieService.InsertMovieAsync(movie);
             return RedirectToAction("Index");
         }
     }

@@ -14,13 +14,14 @@ namespace ApplicationCore.Model
         [Required(ErrorMessage = "Title is required")]
         public string Title { get; set; }
         public string Overview { get; set; }
-        public List<Genre> Genres { get; set; }
-        public List<Cast> Cast { get; set; }
+        public int GenreId { get; set; }
         public string Tagline { get; set; }
         public decimal Budget { get; set; }
         public decimal Revenue { get; set; }
         public string PosterUrl { get; set; }
         public DateTime ReleaseDate { get; set; }
         public decimal Price { get; set; }
+        public List<Genre> Genres { get; set; }
+        public List<CastModel> Cast { get; set; }
     }
 }

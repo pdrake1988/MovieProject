@@ -1,4 +1,5 @@
-﻿using ApplicationCore.Contracts.Repository;
+﻿
+using ApplicationCore.Contracts.Repository;
 using ApplicationCore.Contracts.Services;
 using ApplicationCore.Entities;
 using ApplicationCore.Model;
@@ -52,7 +53,6 @@ namespace Infrastructure.Services
             if (movies != null)
             {
                 List<MovieModel> models = new List<MovieModel>();
-                var genres = await genreService.GetAllGenresAsync();
                 foreach (var movie in movies)
                 {
                     MovieModel model = new MovieModel()
@@ -75,21 +75,22 @@ namespace Infrastructure.Services
             return null;
         }
 
-        public Task<int> InsertMovieAsync(MovieModel movieModel)
+        public async Task<int> InsertMovieAsync(MovieModel movie)
         {
-            Movie movie = new Movie()
+            Movie newMovie = new Movie()
             {
-                Title = movieModel.Title,
-                Overview = movieModel.Overview,
-                ReleaseDate = movieModel.ReleaseDate,
-                Price = movieModel.Price,
-                Tagline = movieModel.Tagline,
-                Revenue = movieModel.Revenue,
-                Budget = movieModel.Budget,
-                PosterUrl = movieModel.PosterUrl,
-                MovieGenres = movieModel.Genres.ToList(),
+                Title = movie.Title,
+                Overview = movie.Overview,
+                ReleaseDate = movie.ReleaseDate,
+                Price = movie.Price,
+                Tagline = movie.Tagline,
+                Revenue = movie.Revenue,
+                Budget = movie.Budget,
+                PosterUrl = movie.PosterUrl,
             };
-            return movieRepository.InsertAsync(movie);
+            newMovie.MovieGenres = new List<Genre>();
+            newMovie.MovieGenres.Add(await genreService.GetGenreById(movie.GenreId));
+            return await movieRepository.InsertAsync(newMovie);
         }
     }
 }

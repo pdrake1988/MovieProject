@@ -19,18 +19,18 @@ namespace Infrastructure.Services
         }
 
         public async Task<int> CreateGenre(Genre genre)
-        {
-            Genre newGenre = new Genre
-            {
-                Id = genre.Id,
-                Name = genre.Name
-            };
-            return await genreRepository.InsertAsync(newGenre);
+        { 
+            return await genreRepository.InsertAsync(genre);
         }
 
-        public Task<IEnumerable<Genre>> GetAllGenresAsync()
+        public async Task<IEnumerable<Genre>> GetAllGenresAsync()
         {
-            return genreRepository.GetAllAsync();
+            return await genreRepository.GetAllAsync();
+        }
+
+        public async Task<Genre> GetGenreById(int id)
+        {
+            return await genreRepository.GetByIdAsync(id);
         }
     }
 }

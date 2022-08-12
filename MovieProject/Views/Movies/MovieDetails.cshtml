@@ -1,11 +1,11 @@
-﻿<div class="row">
+﻿@using ApplicationCore.Model
+@model MovieModel
+<div class="row">
     <div class="col-12 d-flex flex-row bg-secondary">
         <img src="/th.jpg" class="img-fluid m-3" alt="Inception" />
         <div class="bg-secondary">
             <h1 class="text-light">Inception</h1>
-            <p>Cobb, a skilled thief who commits corporate espionage by infiltrating the
-            for a task considered to be impossible: " inception ", the implantation of another
-            Person's idea into a target's subconscious.</p>
+            <p>@Model.Overview</p>
         </div>
         <div class="d-flex flex-row align-content-center">
             <button class="btn btn-outline-light" id="buy-open">Buy</button>
@@ -16,19 +16,18 @@
         <h3 class="text-center">Movie Facts</h3>
         <div class="d-flex flex-row">
             <p class="p-4">Release Date</p>
-            <p class="p-4">July 15, 2010</p>
-        </div>
-        <div class="d-flex flex-row">
-            <p class="p-4">Run Time</p>
-            <p class="p-4">148m</p>
+            <p class="p-4">@Model.ReleaseDate</p>
         </div>
         <div class="d-flex flex-row">
             <p class="p-4">Box Office</p>
-            <p class="p-4">$825,532,764</p>
+            <p class="p-4">@Model.Revenue</p>
         </div>
         <div class="d-flex flex-row">
-            <p class="p-4">Budget</p>
-            <p class="p-4">$160,000,080</p>
+            <p class="p-3">Genres</p>
+            @foreach(var genre in Model.Genres)
+            {
+                <p>@genre.Name</p>
+            }
         </div>
     </div>
     <div class="col-6 d-flex flex-column p-5">

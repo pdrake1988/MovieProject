@@ -1,4 +1,4 @@
-﻿<div class="modal" tabindex="-1" id="myModal">
+﻿<div class="modal" tabindex="-1" id="CreateMovie">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -11,8 +11,8 @@
             <input id="title" type="text" name="Title" class="form-control" />
             <label class="form-label" for="overview">Overview</label>
             <input class="form-control" id="overview" name="Overview" />
-            <label class="form-label" for="genres">Genres</label>
-            <select asp-items="@ViewBag.GenreSelect" class="form-control" id="genres" name="Genres">
+            <label class="form-label" for="genre">Genre</label>
+            <select asp-items="@(new SelectList(ViewBag.Genres, "Id", "Name"))" class="form-control" id="genre" name="GenreId">
                 <option>Select Genre</option>
             </select>
             <label class="form-label" for="tagline">Tagline</label>

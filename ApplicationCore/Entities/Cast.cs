@@ -15,7 +15,7 @@ namespace ApplicationCore.Entities
         public string Name { get; set; }
 
         [Column(TypeName = "Varchar(6)")]
-        public string Gender { get; set; }
+        public string? Gender { get; set; }
 
         [Column(TypeName = "Varchar(200)")]
         public string TmdbUrl { get; set; }

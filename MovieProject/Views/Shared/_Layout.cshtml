@@ -9,44 +9,6 @@
     <link rel="stylesheet" href="~/MovieProject.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <div class="dropdown col-3">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown button
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        @{
-                            @foreach(var genre in @ViewBag.Genres)
-                            {
-                                <li><a class="dropdown-item" asp-controller="Movies" asp-action="Index" asp-route-id="@genre.Id">@genre.Name</a></li>
-                            }
-                        }
-                    </ul>
-                </div>
-                <div class="col-2">
-                    <button role="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal">Create</button>
-                </div>
-                <div class="col-3">
-                    <h1>Movie App</h1>
-                </div>
-                <div class="col-4">
-                    <form asp-controller="Movies" asp-action="CreateGenre">
-                        <div class="row">
-                            <div class="col">
-                                <input class="form-control" id="genres" name="Name" placeholder="Add Genre" />
-                            </div>
-                            <div class="col">
-                                <button class="btn btn-success" role="button" type="submit">Submit</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </nav>
-        <partial name="_CreateMovie" />
-    </header>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

@@ -11,6 +11,7 @@ namespace ApplicationCore.Contracts.Services
     public interface IGenreServiceAsync
     {
         Task<IEnumerable<Genre>> GetAllGenresAsync();
+        Task<Genre> GetGenreById(int id);
         Task<int> CreateGenre(Genre genre);
     }
 }

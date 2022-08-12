@@ -1,0 +1,39 @@
+﻿<div class="col-12">
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container">
+            <div class="dropdown col-4">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    Dropdown button
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    @{
+                        @foreach (var member in ViewBag.Cast)
+                        {
+                            <li><a class="dropdown-item" asp-controller="Cast" asp-action="Index" asp-route-id="@member.Id">@member.Name</a></li>
+                        }
+                    }
+                </ul>
+            </div>
+            <div class="col-3">
+                <h1>Movie App</h1>
+            </div>
+            <div class="col-2">
+                <button role="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#CreateCastMember">Create</button>
+            </div>
+        </div>
+    </nav>
+    <partial name="_CreateCastMember" />
+</div>
+<div class="row">
+    @foreach (var movie in Model)
+    {
+        @if (@ViewBag.Genre == null || movie.Genres.Contains(@ViewBag.Genre))
+        {
+            <div class="col-3">
+                <a asp-controller="Movies" asp-action="MovieDetails" asp-route-id="@movie.Id">
+                    <img src="@movie.PosterUrl" alt="@movie.Title" />
+                </a>
+            </div>
+        }
+    }
+</div>
