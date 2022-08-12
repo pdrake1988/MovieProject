@@ -12,10 +12,16 @@ namespace Infrastructure.Services
 {
     public class CastServiceAsync : ICastServiceAsync
     {
-        ICastRepositoryAsync castRepository;
-        public CastServiceAsync(ICastRepositoryAsync castRepository)
+        private readonly ICastRepositoryAsync castRepository;
+        private readonly IMovieRepositoryAsync movieRepository;
+
+        public CastServiceAsync(
+            ICastRepositoryAsync castRepository,
+            IMovieRepositoryAsync movieRepository
+        )
         {
             this.castRepository = castRepository;
+            this.movieRepository = movieRepository;
         }
 
         public async Task<int> CreateCastMember(CastModel cast)
@@ -24,8 +30,10 @@ namespace Infrastructure.Services
             {
                 Name = cast.Name,
                 Gender = cast.Gender,
-                TmdbUrl = cast.TmdbUrl
+                TmdbUrl = cast.TmdbUrl,
+                Movies = new List<Movie>()
             };
+            newCastMember.Movies.Add(await movieRepository.GetByIdAsync(cast.MovieId));
             return await castRepository.InsertAsync(newCastMember);
         }
 

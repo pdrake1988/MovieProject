@@ -21,7 +21,7 @@ namespace ApplicationCore.Entities
         public string TmdbUrl { get; set; }
 
         [Column(TypeName = "Varchar(2084)")]
-        public string ProfilePath { get; set; }
+        public string? ProfilePath { get; set; }
 
         public List<Movie> Movies { get; set; }
     }

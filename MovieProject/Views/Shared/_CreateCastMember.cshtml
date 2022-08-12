@@ -1,12 +1,16 @@
-﻿<div class="modal" tabindex="-1" id="CreateCastMember">
+﻿<div class="modal" tabindex="-1" id="MovieCast">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Create New Movie</h5>
+                <h5 class="modal-title">Create New Cast Member</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body justify-content-center">
                 <form asp-controller="Cast" asp-action="CreateCastMember" method="post">
+                    <label for="movies">Movies</label>
+                    <select asp-items="@(new SelectList(Model, "Id", "Title"))" name="MovieId">
+                        <option>Select Movie</option>
+                    </select>
                     <label for="name" class="form-label">Name</label>
                     <input id="name" class="form-control" name="Name" />
                     <label for="gender" class="form-label">Gender</label>

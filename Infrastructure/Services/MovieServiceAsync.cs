@@ -1,5 +1,4 @@
-﻿
-using ApplicationCore.Contracts.Repository;
+﻿using ApplicationCore.Contracts.Repository;
 using ApplicationCore.Contracts.Services;
 using ApplicationCore.Entities;
 using ApplicationCore.Model;
@@ -14,15 +13,18 @@ namespace Infrastructure.Services
 {
     public class MovieServiceAsync : IMovieServiceAsync
     {
-
         IMovieRepositoryAsync movieRepository;
         IGenreServiceAsync genreService;
-        public MovieServiceAsync(IMovieRepositoryAsync movieRepository, IGenreServiceAsync genreService)
+
+        public MovieServiceAsync(
+            IMovieRepositoryAsync movieRepository,
+            IGenreServiceAsync genreService
+        )
         {
             this.movieRepository = movieRepository;
             this.genreService = genreService;
         }
-        
+
         public async Task<MovieModel> GetMovieByIdAsync(int id)
         {
             Movie movie = await movieRepository.GetByIdAsync(id);
@@ -87,8 +89,8 @@ namespace Infrastructure.Services
                 Revenue = movie.Revenue,
                 Budget = movie.Budget,
                 PosterUrl = movie.PosterUrl,
+                MovieGenres = new List<Genre>()
             };
-            newMovie.MovieGenres = new List<Genre>();
             newMovie.MovieGenres.Add(await genreService.GetGenreById(movie.GenreId));
             return await movieRepository.InsertAsync(newMovie);
         }

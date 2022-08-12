@@ -27,7 +27,7 @@ namespace MovieProject.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Index(CastModel cast)
+        public async Task<ActionResult> CreateCastMember(CastModel cast)
         {
             await castService.CreateCastMember(cast);
             return RedirectToAction("Index");

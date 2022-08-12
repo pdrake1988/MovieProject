@@ -12,6 +12,7 @@ namespace ApplicationCore.Model
         public string Name { get; set; }
         public string Gender { get; set; }
         public string TmdbUrl { get; set; }
+        public int MovieId { get; set; }
         public List<MovieModel> Movies { get; set; }
     }
 }
